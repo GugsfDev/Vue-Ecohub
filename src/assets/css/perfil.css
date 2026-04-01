@@ -1,0 +1,237 @@
+
+.perfil-layout {
+    display: flex;
+    gap: 30px;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sidebar-perfil {
+    flex: 1;
+    min-width: 320px;
+}
+
+.card-perfil-main {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.foto-grande {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.username {
+    color: #00d2ff; /* Cor destaque do seu tema */
+    font-size: 1.1rem;
+}
+
+.bio {
+    margin: 15px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.perfil-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.stat {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.stat span {
+    display: block;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.acoes-perfil {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-editar, .btn-sair {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-editar {
+    background-color: #00d2ff;
+    color: #fff;
+}
+
+.btn-editar:hover { background-color: #0099cc; }
+
+.btn-sair {
+    background-color: #fff;
+    color: #f44336; /* Vermelho para atenção */
+    border: 1px solid #f44336;
+}
+
+.btn-sair:hover {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.perfil-timeline {
+    flex: 2;
+    min-width: 600px;
+}
+
+.tweet-card-fake {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tweet-text-fake { color: #444; }
+
+.fake-img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.badg-fake {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #e1f5fe;
+    color: #0277bd;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+/* ================= DARK MODE PERFIL ================= */
+
+body.dark-mode {
+    --perfil-bg: #0f172a;
+    --perfil-card: #020817;
+    --perfil-soft: #1e293b;
+    --perfil-text: #e2e8f0;
+    --perfil-text-secondary: #94a3b8;
+    --perfil-accent: #38bdf8;
+    --perfil-danger: #ef4444;
+    --perfil-border: #1e293b;
+    --perfil-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== LAYOUT ===== */
+body.dark-mode .perfil-layout {
+    background: transparent;
+}
+
+/* ===== CARD PRINCIPAL ===== */
+body.dark-mode .card-perfil-main {
+    background: var(--perfil-card);
+    color: var(--perfil-text);
+    box-shadow: var(--perfil-shadow);
+    border: 1px solid var(--perfil-border);
+}
+
+/* FOTO */
+body.dark-mode .foto-grande {
+    border: 4px solid var(--perfil-soft);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* USERNAME */
+body.dark-mode .username {
+    color: var(--perfil-accent);
+}
+
+/* BIO */
+body.dark-mode .bio {
+    color: var(--perfil-text-secondary);
+}
+
+/* ===== STATS ===== */
+body.dark-mode .perfil-stats {
+    border-top: 1px solid var(--perfil-border);
+    border-bottom: 1px solid var(--perfil-border);
+}
+
+body.dark-mode .stat {
+    color: var(--perfil-text-secondary);
+}
+
+body.dark-mode .stat span {
+    color: var(--perfil-text);
+}
+
+/* ===== BOTÕES ===== */
+body.dark-mode .btn-editar {
+    background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+    color: white;
+}
+
+body.dark-mode .btn-editar:hover {
+    filter: brightness(1.1);
+}
+
+body.dark-mode .btn-sair {
+    background: transparent;
+    color: var(--perfil-danger);
+    border: 1px solid var(--perfil-danger);
+}
+
+body.dark-mode .btn-sair:hover {
+    background: var(--perfil-danger);
+    color: white;
+}
+
+/* ===== TIMELINE ===== */
+body.dark-mode .tweet-card-fake {
+    background: var(--perfil-card);
+    color: var(--perfil-text);
+    box-shadow: var(--perfil-shadow);
+    border: 1px solid var(--perfil-border);
+}
+
+/* TEXTO */
+body.dark-mode .tweet-text-fake {
+    color: var(--perfil-text-secondary);
+}
+
+/* IMAGEM */
+body.dark-mode .fake-img {
+    filter: brightness(0.8) contrast(1.1);
+}
+
+/* BADGE */
+body.dark-mode .badg-fake {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--perfil-accent);
+}
+
+/* ===== HOVER (efeito moderno igual seu outro layout) ===== */
+body.dark-mode .tweet-card-fake:hover,
+body.dark-mode .card-perfil-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+    transition: 0.3s;
+}

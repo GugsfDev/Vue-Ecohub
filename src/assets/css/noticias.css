@@ -1,0 +1,186 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BODY - MODO CLARO ===== */
+body {
+    background: #f4f4f4;
+    color: #111;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ===== CONTAINER NOTÍCIAS ===== */
+.noticias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ===== CARD NOTÍCIA ===== */
+.card-noticia {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: calc(33.33% - 40px);
+    min-height: 250px;
+    transition: 0.3s;
+}
+
+/* LINKS */
+.card-noticia a {
+    text-decoration: none;
+    color: #0d3b66;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.card-noticia a:hover {
+    text-decoration: underline;
+}
+
+/* IMAGENS */
+.card-noticia img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* TEXTOS */
+.card-noticia h3 {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.card-noticia p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* LINK EXTERNO */
+.link-externo {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #555;
+}
+
+/* CONTEÚDO EXTRA */
+.conteudo-extra {
+    background: white;
+    padding: 10px;
+    display: none;
+}
+
+.conteudo-extra.ativo,
+.card-noticia.ativo .conteudo-extra {
+    display: block;
+}
+
+/* ESTATÍSTICAS */
+.estatisticas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #f4f4f4;
+    padding: 40px 20px;
+}
+
+/* CARDS GERAIS */
+.card {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* TÍTULO */
+.titulo {
+    background-color: #31BADF;
+    color: white;
+    margin: 40px auto;
+    padding: 20px 40px;
+    border-radius: 30px;
+    display: block;
+    width: fit-content;
+}
+
+/* H2 */
+h2 {
+    font-family: 'Poppins', sans-serif;
+    margin: 20px 0;
+    font-size: 40px;
+    text-align: center;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+    .noticias {
+        flex-direction: column;
+    }
+    .card-noticia {
+        width: 100%;
+    }
+}
+
+/* ================= DARK MODE ================= */
+
+/* BODY */
+/* ===== DARK MODE - NOTÍCIAS COMO EVENTS ===== */
+body.dark-mode .card-noticia {
+    background: #020817;
+    border: 1px solid #1e293b;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+body.dark-mode .card-noticia:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .card-noticia img {
+    filter: brightness(0.7);
+}
+
+body.dark-mode .card-noticia h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .card-noticia p {
+    color: #94a3b8;
+}
+
+body.dark-mode .card-noticia a {
+    color: #60a5fa;
+}
+
+body.dark-mode .card-noticia a:hover {
+    color: #ffffff;
+}
+
+body.dark-mode .conteudo-extra {
+    background: #020817;
+    color: #94a3b8;
+}
+
+body.dark-mode{
+    background: #0f172a;
+    color: white;
+}

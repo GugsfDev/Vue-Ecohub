@@ -1,0 +1,246 @@
+/* =========================================
+   VARIÁVEIS DE DESIGN
+   ========================================= */
+:root {
+  --eco-primary: #002b5c;
+  --eco-secondary: #0077c8;
+  --eco-accent: #00b4d8;
+  --eco-dark: #1a1a1a;
+  --eco-text: #4a4a4a;
+  --eco-bg-light: #f8faff;
+  --eco-white: #ffffff;
+  --eco-radius: 12px;
+  --eco-shadow: 0 10px 30px rgba(0, 43, 92, 0.08);
+  --eco-shadow-hover: 0 15px 40px rgba(0, 119, 200, 0.15);
+  --eco-font: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+/* =========================================
+   DARK MODE (VARIÁVEIS)
+   ========================================= */
+body.dark-mode {
+  --eco-primary: #60a5fa;
+  --eco-secondary: #38bdf8;
+  --eco-accent: #22d3ee;
+  --eco-dark: #0f172a;
+  --eco-text: #cbd5f5;
+  --eco-bg-light: #020817;
+  --eco-white: #020817;
+  --eco-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  --eco-shadow-hover: 0 15px 40px rgba(0,0,0,0.7);
+}
+
+/* =========================================
+   BASE
+   ========================================= */
+.ecossistema-main {
+  font-family: var(--eco-font);
+  color: var(--eco-text);
+  line-height: 1.6;
+  background-color: var(--eco-white);
+  overflow-x: hidden;
+  transition: 0.3s;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--eco-white);
+  background-color: #00b4d8;
+  border-radius: 8px;
+}
+
+.eco-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.eco-section {
+  padding: 80px 0;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+.eco-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* 🔥 CORREÇÃO AQUI */
+.eco-section-header h2 {
+  color: white; /* antes era var(--eco-primary) */
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.eco-section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: var(--eco-secondary);
+  bottom: -5px;
+  left: 25%;
+  border-radius: 2px;
+}
+
+.eco-section-header p {
+  font-size: 1.1rem;
+  color: var(--eco-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+.eco-hero {
+  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
+  color: var(--eco-white);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.eco-hero h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background-color: #00b4d8;
+  color: white;
+  border-radius: 8px;
+}
+
+.eco-hero .eco-lead {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* =========================================
+   GRID
+   ========================================= */
+.eco-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* =========================================
+   CARDS
+   ========================================= */
+.eco-card {
+  background: var(--eco-white);
+  padding: 30px;
+  border-radius: var(--eco-radius);
+  box-shadow: var(--eco-shadow);
+  border-top: 4px solid var(--eco-secondary);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border-radius: 50px;
+}
+
+.eco-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--eco-shadow-hover);
+}
+
+.eco-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: var(--eco-accent);
+  opacity: 0.1;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.eco-card:hover::before {
+  transform: scale(2.5);
+}
+
+.eco-card h3 {
+  color: var(--eco-primary);
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   IMPACTO
+   ========================================= */
+.eco-impacto {
+  background: var(--eco-secondary);
+  color: var(--eco-white);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.eco-impacto h2 {
+  font-size: 2.5rem;
+}
+
+/* =========================================
+   EQUIPE
+   ========================================= */
+.eco-equipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  background: white;
+  border-radius: 50px;
+}
+
+.eco-membro {
+  background: var(--eco-white);
+  padding: 30px;
+  border-radius: var(--eco-radius);
+  text-align: center;
+  box-shadow: var(--eco-shadow);
+  transition: 0.3s;
+}
+
+.eco-membro:hover {
+  transform: translateY(-8px);
+}
+
+.eco-avatar {
+  width: 100px;
+  height: 100px;
+  background: #e0e6ed;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  border: 3px solid var(--eco-secondary);
+}
+
+.eco-membro h4 {
+  color: var(--eco-primary);
+}
+
+.eco-membro span {
+  color: var(--eco-secondary);
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+@media (max-width: 768px) {
+  .eco-hero h1 { font-size: 2.2rem; }
+  .eco-section-header h2 { font-size: 1.8rem; }
+}
+
+
+
+body.dark-mode .eco-card {
+  background-color: #020817;
+}
+
+body.dark-mode .eco-equipe-grid {
+   background-color: #020817
+ 
+}
