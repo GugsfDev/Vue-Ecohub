@@ -42,6 +42,11 @@ body.dark-mode {
   transition: 0.3s;
 }
 
+h2, h3, h4 {
+  transition: 0.3s;
+}
+
+/* Títulos principais */
 h2 {
   font-size: 3rem;
   font-weight: 800;
@@ -51,10 +56,12 @@ h2 {
   border-radius: 8px;
 }
 
+/* Container principal */
 .eco-container {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
+  
 }
 
 .eco-section {
@@ -69,9 +76,8 @@ h2 {
   margin-bottom: 50px;
 }
 
-/* 🔥 CORREÇÃO AQUI */
 .eco-section-header h2 {
-  color: white; /* antes era var(--eco-primary) */
+  color: var(--eco-white);
   font-size: 2.2rem;
   margin-bottom: 10px;
   position: relative;
@@ -132,7 +138,7 @@ h2 {
    CARDS
    ========================================= */
 .eco-card {
-  background: var(--eco-white);
+  background: white;
   padding: 30px;
   border-radius: var(--eco-radius);
   box-shadow: var(--eco-shadow);
@@ -140,12 +146,11 @@ h2 {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
-  background: white;
   border-radius: 50px;
 }
 
 .eco-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(0); /* remove efeito de subir */
   box-shadow: var(--eco-shadow-hover);
 }
 
@@ -192,7 +197,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  background: white;
+  background: var(--eco-white);
   border-radius: 50px;
 }
 
@@ -206,7 +211,7 @@ h2 {
 }
 
 .eco-membro:hover {
-  transform: translateY(-8px);
+  transform: translateY(0); /* remove efeito de subir */
 }
 
 .eco-avatar {
@@ -234,13 +239,35 @@ h2 {
   .eco-section-header h2 { font-size: 1.8rem; }
 }
 
+/* =========================================
+   DARK MODE
+   ========================================= */
+body.dark-mode {
+  background-color: var(--eco-bg-light);
+  color: var(--eco-text);
+}
 
+body.dark-mode h2{
 
-body.dark-mode .eco-card {
   background-color: #020817;
 }
 
+body.dark-mode .eco-card {
+  background-color: #020817;
+  border: 1px solid #1e293b;
+  color: var(--eco-text);
+}
+
 body.dark-mode .eco-equipe-grid {
-   background-color: #020817
- 
+   background-color: #020817;
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: var(--eco-white); /* corrige títulos no modo escuro */
+}
+
+body.dark-mode .eco-section-header h2::after {
+  background: var(--eco-secondary);
 }

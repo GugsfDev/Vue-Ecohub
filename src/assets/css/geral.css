@@ -218,32 +218,20 @@ nav a.ativo{
 /* ================= FOOTER ================= */
 
 .footer {
-<<<<<<< HEAD
     background: #1a6fad; /* Mesmo tom azul do seu site */
     color: white;
     padding: 70px 5% 30px;
     font-family: 'Poppins', sans-serif;
     margin-top: 50px;
-=======
-    background: var(--primary);
-    color: white;
-    padding: 50px 20px 20px;
-    margin-top: auto;
->>>>>>> 109466dba9e1aea8871d170ee593daa3d51777d2
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-<<<<<<< HEAD
     justify-content: space-between;
     gap: 50px;
     flex-wrap: wrap;
-=======
-    flex-wrap: wrap;
-    gap: 30px;
->>>>>>> 109466dba9e1aea8871d170ee593daa3d51777d2
 }
 
 .footer-col {
@@ -251,7 +239,6 @@ nav a.ativo{
     min-width: 250px;
 }
 
-<<<<<<< HEAD
 .footer-col h3 {
     font-size: 1.25rem;
     font-weight: 700;
@@ -457,19 +444,6 @@ nav a.ativo{
 }
 
 /* ================= BOTÃO VOLTAR AO TOPO ================= */
-=======
-.footer-col h4 {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-}
-
-.footer-col p,
-.footer-col ul li a {
-    color: white;
-}
-
-/* ================= BOTÃO TOPO ================= */
->>>>>>> 109466dba9e1aea8871d170ee593daa3d51777d2
 
 .btn-topo {
     position: fixed;
