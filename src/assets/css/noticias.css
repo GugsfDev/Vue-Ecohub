@@ -151,6 +151,9 @@ body.dark-mode .card-noticia {
     transition: 0.3s;
 }
 
+body.dark-mode .titulo{
+    background-color: #020817;
+}
 body.dark-mode .card-noticia:hover {
     box-shadow: 0 12px 30px rgba(0,0,0,0.5);
 }

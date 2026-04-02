@@ -177,4 +177,10 @@ body.dark-mode .action-btn-styled:hover { background-color: #2a2a2a; }
 
 body.dark-mode .btn-follow { border: 1px solid #00d2ff; background: transparent; color: #00d2ff; }
 body.dark-mode .btn-follow:hover { background: #00d2ff; color: #fff; }
+
+body.dark-mode .profile-cover {
+    background-color: #1a6fad;
+}
+
+body.dark-mode .btn-publicar{ background-color: #1a6fad;}
 </style>

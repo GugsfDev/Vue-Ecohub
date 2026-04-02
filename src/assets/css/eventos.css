@@ -212,7 +212,7 @@ body.dark-mode .navbar a::after {
 
 /* HERO */
 body.dark-mode .hero {
-    background: linear-gradient(135deg, #020817, #0f172a);
+    background: #020817;
 }
 
 /* SMALL CARDS */

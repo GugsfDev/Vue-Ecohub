@@ -15,7 +15,6 @@
         <ul class="footer-links">
           <li><router-link to="/">Início</router-link></li>
           <li><router-link to="/feed">Feed de Notícias</router-link></li>
-          <li><router-link to="/projetos">Projetos</router-link></li>
           <li><router-link to="/calendario">Eventos</router-link></li>
         </ul>
       </div>
