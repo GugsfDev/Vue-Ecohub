@@ -182,5 +182,5 @@ body.dark-mode .profile-cover {
     background-color: #1a6fad;
 }
 
-body.dark-mode .btn-publicar{ background-color: #1a6fad;}
+body.dark-mode .btn-publicar{ background-color: #1a6fad ;}
 </style>

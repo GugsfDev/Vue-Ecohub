@@ -2,7 +2,13 @@
   <div class="split-layout">
     <div class="form-side">
       <div class="form-container">
-        <img src="../assets/img/eniacpreto.png" alt="EcoHub" class="logo icon-logo">
+        
+        <!-- ✅ LOGO DINÂMICA -->
+        <img 
+          :src="darkMode ? logoEscuro : logoClaro" 
+          alt="EcoHub" 
+          class="logo icon-logo"
+        >
 
         <h2>Crie sua conta</h2>
         <p class="subtitle">Preencha os dados para se cadastrar no EcoHub</p>
@@ -27,7 +33,14 @@
               <label>E-mail institucional</label>
               <div class="campo">
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" v-model="email" placeholder="seu.nome@eniac.edu.br" pattern=".+@eniac\.edu\.br$" title="Por favor, utilize um e-mail com o domínio @eniac.edu.br" required>
+                <input 
+                  type="email" 
+                  v-model="email" 
+                  placeholder="seu.nome@eniac.edu.br" 
+                  pattern=".+@eniac\.edu\.br$" 
+                  title="Por favor, utilize um e-mail com o domínio @eniac.edu.br"
+                  required
+                >
               </div>
             </div>
 
@@ -35,7 +48,7 @@
               <div class="grupo-input">
                 <label>Curso</label>
                 <select v-model="curso" required>
-                  <option value="" disabled selected>Selecione</option>
+                  <option value="" disabled>Selecione</option>
                   <option value="eng_software">Eng. Software</option>
                   <option value="ciencia_computacao">Ciência da Computação</option>
                   <option value="sistemas_info">Sistemas de Informação</option>
@@ -47,7 +60,7 @@
               <div class="grupo-input">
                 <label>Semestre</label>
                 <select v-model="semestre" required>
-                  <option value="" disabled selected>Selecione</option>
+                  <option value="" disabled>Selecione</option>
                   <option value="1">1º Semestre</option>
                   <option value="2">2º Semestre</option>
                   <option value="3">3º Semestre</option>
@@ -64,8 +77,18 @@
               <label>Senha</label>
               <div class="campo">
                 <i class="fa-solid fa-lock"></i>
-                <input :type="mostrarSenha ? 'text' : 'password'" v-model="senha" placeholder="Mínimo 8 caracteres" required>
-                <i class="fa-regular toggle-senha" :class="mostrarSenha ? 'fa-eye-slash' : 'fa-eye'" @click="mostrarSenha = !mostrarSenha" style="cursor: pointer;"></i>
+                <input 
+                  :type="mostrarSenha ? 'text' : 'password'" 
+                  v-model="senha" 
+                  placeholder="Mínimo 8 caracteres" 
+                  required
+                >
+                <i 
+                  class="fa-regular toggle-senha" 
+                  :class="mostrarSenha ? 'fa-eye-slash' : 'fa-eye'" 
+                  @click="mostrarSenha = !mostrarSenha"
+                  style="cursor: pointer;"
+                ></i>
               </div>
             </div>
 
@@ -73,12 +96,24 @@
               <label>Confirmar senha</label>
               <div class="campo">
                 <i class="fa-solid fa-lock"></i>
-                <input :type="mostrarConfirmarSenha ? 'text' : 'password'" v-model="confirmarSenha" placeholder="Digite a senha novamente" required>
-                <i class="fa-regular toggle-senha" :class="mostrarConfirmarSenha ? 'fa-eye-slash' : 'fa-eye'" @click="mostrarConfirmarSenha = !mostrarConfirmarSenha" style="cursor: pointer;"></i>
+                <input 
+                  :type="mostrarConfirmarSenha ? 'text' : 'password'" 
+                  v-model="confirmarSenha" 
+                  placeholder="Digite a senha novamente"
+                  required
+                >
+                <i 
+                  class="fa-regular toggle-senha" 
+                  :class="mostrarConfirmarSenha ? 'fa-eye-slash' : 'fa-eye'" 
+                  @click="mostrarConfirmarSenha = !mostrarConfirmarSenha"
+                  style="cursor: pointer;"
+                ></i>
               </div>
             </div>
 
-            <p v-if="erroSenha" class="erro-senha" style="color: red; font-size: 13px; margin-top: -5px;">{{ erroSenha }}</p>
+            <p v-if="erroSenha" class="erro-senha" style="color: red; font-size: 13px;">
+              {{ erroSenha }}
+            </p>
 
             <div class="termos">
               <input type="checkbox" id="aceitarTermos" v-model="aceitarTermos" required>
@@ -92,49 +127,34 @@
             <p class="troca-pagina">
               Já tem uma conta? <RouterLink to="/login">Faça login</RouterLink>
             </p>
+
           </form>
         </div>
 
-        <RouterLink to="/inicio" class="btn-voltar">&larr; Voltar para a página inicial</RouterLink>
+        <RouterLink to="/inicio" class="btn-voltar">
+          ← Voltar para a página inicial
+        </RouterLink>
       </div>
     </div>
 
     <div class="image-side">
       <div class="image-content">
         <h2>Faça Parte do EcoHub</h2>
-        <p>Junte-se a milhares de alunos que já estão compartilhando seus projetos e construindo o futuro da tecnologia.</p>
-
-        <div class="benefits-list">
-          <div class="benefit-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <div>
-              <h4>Compartilhe seus projetos</h4>
-              <p>Mostre seu trabalho para a comunidade acadêmica e empresas parceiras.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <div>
-              <h4>Participe de eventos</h4>
-              <p>Hackathons, workshops e palestras com grandes nomes do mercado.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <div>
-              <h4>Conecte-se com alunos</h4>
-              <p>Faça networking, tire dúvidas e colabore em projetos inovadores.</p>
-            </div>
-          </div>
-        </div>
+        <p>Junte-se a milhares de alunos que já estão compartilhando seus projetos.</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import api from '../services/api' // ✅ CONEXÃO COM API
 
+// ✅ IMAGENS
+import logoClaro from '../assets/img/eniacpreto.png'
+import logoEscuro from '../assets/img/ecoescuro.png'
+
+// STATES
 const nome = ref('')
 const email = ref('')
 const curso = ref('')
@@ -145,33 +165,57 @@ const aceitarTermos = ref(false)
 
 const erroSenha = ref('')
 
-// Controle dos "olhinhos"
+// 👁️ senha
 const mostrarSenha = ref(false)
 const mostrarConfirmarSenha = ref(false)
 
-const fazerCadastro = () => {
-  // Verificação automática se a senha bate antes de enviar pro banco
+// 🌙 tema
+const darkMode = ref(false)
+
+onMounted(() => {
+  const temaSalvo = localStorage.getItem("theme")
+
+  if (temaSalvo === "dark") {
+    document.body.classList.add("dark-mode")
+    darkMode.value = true
+  }
+})
+
+// ✅ FUNÇÃO COM API
+const fazerCadastro = async () => {
   if (senha.value !== confirmarSenha.value) {
     erroSenha.value = 'As senhas não coincidem!'
     return
   }
-  erroSenha.value = '' // Limpa o erro
-  
-  console.log('Dados prontos para a API:', {
-    nome: nome.value,
-    email: email.value,
-    curso: curso.value,
-    semestre: semestre.value
-  })
+
+  erroSenha.value = ''
+
+  try {
+    await api.post('/usuarios', {
+      nome: nome.value,
+      email: email.value,
+      senha: senha.value,
+      curso: curso.value,
+      semestre: semestre.value
+    })
+
+    alert('Cadastro realizado com sucesso! 🚀')
+
+    // limpar campos
+    nome.value = ''
+    email.value = ''
+    curso.value = ''
+    semestre.value = ''
+    senha.value = ''
+    confirmarSenha.value = ''
+
+  } catch (error) {
+    console.error(error)
+    alert('Erro ao cadastrar ❌')
+  }
 }
 </script>
 
 <style scoped>
 @import "../assets/css/login_cadastro.css";
-
-.icon-logo {
-    width: 120px;
-    margin-bottom: 15px;
-    align-self: center;
-}
 </style>
