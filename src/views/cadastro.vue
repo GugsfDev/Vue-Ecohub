@@ -148,9 +148,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import api from '../services/api' // ✅ CONEXÃO COM API
+import api from '../services/api'
 
-// ✅ IMAGENS
+// IMAGENS
 import logoClaro from '../assets/img/eniacpreto.png'
 import logoEscuro from '../assets/img/ecoescuro.png'
 
@@ -165,11 +165,11 @@ const aceitarTermos = ref(false)
 
 const erroSenha = ref('')
 
-// 👁️ senha
+// senha visível
 const mostrarSenha = ref(false)
 const mostrarConfirmarSenha = ref(false)
 
-// 🌙 tema
+// tema
 const darkMode = ref(false)
 
 onMounted(() => {
@@ -181,27 +181,41 @@ onMounted(() => {
   }
 })
 
-// ✅ FUNÇÃO COM API
+// 🚀 CADASTRO CORRIGIDO
 const fazerCadastro = async () => {
+
+  // validação senha
   if (senha.value !== confirmarSenha.value) {
     erroSenha.value = 'As senhas não coincidem!'
     return
   }
 
+  // valida termos
+  if (!aceitarTermos.value) {
+    alert('Você precisa aceitar os termos!')
+    return
+  }
+
   erroSenha.value = ''
 
+  const dados = {
+    nome: nome.value,
+    email: email.value,
+    senha: senha.value,
+    curso: curso.value,
+    semestre: semestre.value
+  }
+
   try {
-    await api.post('/usuarios', {
-      nome: nome.value,
-      email: email.value,
-      senha: senha.value,
-      curso: curso.value,
-      semestre: semestre.value
-    })
+    console.log("ENVIANDO:", dados) // 🔥 DEBUG
+
+    const response = await api.post('/usuarios', dados)
+
+    console.log("RESPOSTA:", response.data)
 
     alert('Cadastro realizado com sucesso! 🚀')
 
-    // limpar campos
+    // limpar
     nome.value = ''
     email.value = ''
     curso.value = ''
@@ -210,8 +224,13 @@ const fazerCadastro = async () => {
     confirmarSenha.value = ''
 
   } catch (error) {
-    console.error(error)
-    alert('Erro ao cadastrar ❌')
+    console.error("ERRO COMPLETO:", error)
+
+    if (error.response) {
+      alert(error.response.data.erro || 'Erro ao cadastrar')
+    } else {
+      alert('Erro ao conectar com o servidor')
+    }
   }
 }
 </script>

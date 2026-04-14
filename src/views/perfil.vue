@@ -4,9 +4,13 @@
       <div class="card-perfil-main">
         <img src="../assets/img/perfil.jpg" alt="Foto de Perfil" class="foto-grande">
         
-        <h2>João Silva</h2>
-        <p class="username">@joaosilva</p>
-        <p class="bio">Desenvolvedor Vue.js e entusiasta de inovação no EcoHub ENIAC. 🚀 🌱</p>
+        <!-- 🔥 NOME DINÂMICO -->
+        <h2>{{ usuario?.nome || 'Usuário' }}</h2>
+
+        <!-- 🔥 USERNAME AUTOMÁTICO -->
+        <p class="username">@{{ usuario?.email?.split('@')[0] }}</p>
+
+        <p class="bio">Bem-vindo ao seu perfil no EcoHub 🚀</p>
         
         <div class="perfil-stats">
           <div class="stat"><span>120</span>Seguidores</div>
@@ -28,17 +32,7 @@
       
       <div class="tweet-card-fake">
         <p class="tweet-text-fake">
-          "Finalizei o desenvolvimento do painel de perfil! @ecohub_eniac #vue #webdev"
-          <br>
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Código" class="fake-img">
-        </p>
-      </div>
-      
-      <div class="tweet-card-fake">
-        <p class="tweet-text-fake">
-          "Sera na sala 101, Auditório Central, às 19:30!"
-          <br>
-          <span class="badg-fake">Participando: Workshop de React Native (📅 sab, 17/10)</span>
+          "Finalizei o desenvolvimento do painel de perfil!"
         </p>
       </div>
     </main>
@@ -46,21 +40,36 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-// Lógica de Logout: Limpa o token e redireciona
+// 🔥 USUÁRIO
+const usuario = ref(null)
+
+// 🚀 CARREGA USUÁRIO AO ENTRAR
+onMounted(() => {
+  const userStorage = localStorage.getItem('usuario')
+
+  if (userStorage) {
+    usuario.value = JSON.parse(userStorage)
+  } else {
+    // 🔒 se não estiver logado
+    router.push('/login')
+  }
+})
+
+// 🚪 LOGOUT
 const confirmarLogout = () => {
   const confirmar = window.confirm("Você tem certeza de que deseja sair?")
+  
   if (confirmar) {
-    // 1. Limpa o token do localStorage
-    localStorage.removeItem('token')
-    
-    // 2. Redireciona para a página de Login
+    localStorage.removeItem('usuario') // 🔥 CORRIGIDO
     router.push('/login')
   }
 }
+
 </script>
 
 <style scoped>

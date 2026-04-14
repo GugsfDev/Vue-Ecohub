@@ -98,12 +98,11 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted } from 'vue'
-import api from '../services/api' // ✅ SÓ ADICIONEI ISSO
+import api from '../services/api'
 
-// ✅ IMPORTAÇÃO DAS IMAGENS (ESSENCIAL)
+// IMAGENS
 import logoClaro from '../assets/img/eniacpreto.png'
 import logoEscuro from '../assets/img/ecoescuro.png'
 
@@ -112,7 +111,7 @@ const senha = ref('')
 const lembrarMe = ref(false)
 const mostrarSenha = ref(false)
 
-// 🌙 CONTROLE DO DARK MODE
+// tema
 const darkMode = ref(false)
 
 onMounted(() => {
@@ -124,7 +123,7 @@ onMounted(() => {
   }
 })
 
-// ✅ AGORA COM API (SEM MEXER NO RESTO)
+// 🚀 LOGIN CORRIGIDO
 const fazerLogin = async () => {
   try {
     const response = await api.post('/login', {
@@ -134,14 +133,27 @@ const fazerLogin = async () => {
 
     console.log('Login sucesso:', response.data)
 
-    // salva token se existir
-    if (response.data.token) {
-      localStorage.setItem('token', response.data.token)
+    // 🔥 SALVA USUÁRIO (ESSENCIAL)
+    localStorage.setItem('usuario', JSON.stringify(response.data.usuario))
+
+    // 🔥 lembrar login (opcional)
+    if (lembrarMe.value) {
+      localStorage.setItem('lembrarEmail', email.value)
     }
+
+    alert('Login realizado com sucesso! 🚀')
+
+    // 🔁 REDIRECIONA
+    window.location.href = '/inicio'
 
   } catch (error) {
     console.error('Erro no login:', error)
-    alert('Email ou senha inválidos')
+
+    if (error.response) {
+      alert(error.response.data.erro)
+    } else {
+      alert('Erro ao conectar com o servidor')
+    }
   }
 }
 </script>

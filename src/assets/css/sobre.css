@@ -42,31 +42,66 @@ body.dark-mode {
   transition: 0.3s;
 }
 
+/* =========================================
+   TÍTULOS PADRÃO
+   ========================================= */
 h2, h3, h4 {
+  color: var(--eco-primary);
   transition: 0.3s;
 }
 
-/* Títulos principais */
-h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 20px;
+/* =========================================
+   CAIXAS DE TÍTULO (NOVO)
+   ========================================= */
+.eco-title-box {
+  display: inline-block;
+  background: var(--eco-secondary);
   color: var(--eco-white);
-  background-color: #f1f5f9;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 119, 200, 0.2);
 }
 
-/* Container principal */
+.eco-subtitle-box {
+  display: inline-block;
+  background: rgba(0, 119, 200, 0.1);
+  color: var(--eco-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* =========================================
+   CONTAINER
+   ========================================= */
 .eco-container {
+
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
-  
 }
 
 .eco-section {
   padding: 80px 0;
 }
+
+.eco-container h2 {
+   background: #31BADF;
+   display: inline-block;
+
+  color: white;
+
+  /* 🔥 AQUI É O QUE AUMENTA A ÁREA */
+  padding: 20px 50px; 
+
+  border-radius: 30px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+
 
 /* =========================================
    HEADER
@@ -74,13 +109,6 @@ h2 {
 .eco-section-header {
   text-align: center;
   margin-bottom: 50px;
-}
-
-.eco-section-header h2 {
-  color: var(--eco-white);
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  position: relative;
 }
 
 .eco-section-header h2::after {
@@ -105,24 +133,9 @@ h2 {
    HERO
    ========================================= */
 .eco-hero {
-  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
-  color: var(--eco-white);
+ 
   padding: 100px 0;
   text-align: center;
-}
-
-.eco-hero h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  background-color: #f1f5f9;
-  color: black;
-  border-radius: 8px;
-}
-
-.eco-hero .eco-lead {
-  font-size: 1.25rem;
-  opacity: 0.9;
 }
 
 /* =========================================
@@ -140,17 +153,15 @@ h2 {
 .eco-card {
   background: white;
   padding: 30px;
-  border-radius: var(--eco-radius);
+  border-radius: 50px;
   box-shadow: var(--eco-shadow);
   border-top: 4px solid var(--eco-secondary);
   transition: 0.3s;
   position: relative;
   overflow: hidden;
-  border-radius: 50px;
 }
 
 .eco-card:hover {
-  transform: translateY(0); /* remove efeito de subir */
   box-shadow: var(--eco-shadow-hover);
 }
 
@@ -186,10 +197,6 @@ h2 {
   text-align: center;
 }
 
-.eco-impacto h2 {
-  font-size: 2.5rem;
-}
-
 /* =========================================
    EQUIPE
    ========================================= */
@@ -208,10 +215,6 @@ h2 {
   text-align: center;
   box-shadow: var(--eco-shadow);
   transition: 0.3s;
-}
-
-.eco-membro:hover {
-  transform: translateY(0); /* remove efeito de subir */
 }
 
 .eco-avatar {
@@ -235,23 +238,38 @@ h2 {
    RESPONSIVO
    ========================================= */
 @media (max-width: 768px) {
-  .eco-hero h1 { font-size: 2.2rem; }
-  .eco-section-header h2 { font-size: 1.8rem; }
+  .eco-title-box {
+    font-size: 1.5rem;
+  }
 }
 
 /* =========================================
-   DARK MODE
+   DARK MODE AJUSTES
    ========================================= */
 body.dark-mode {
   background-color: var(--eco-bg-light);
-  color: #1e293b;
 }
 
-body.dark-mode h2{
-
-  background-color: #0f172a;
+/* Títulos em dark */
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: var(--eco-primary);
 }
 
+/* Caixa título dark */
+body.dark-mode .eco-title-box {
+  background: var(--eco-primary);
+  color: #020817;
+}
+
+/* Caixa subtítulo dark */
+body.dark-mode .eco-subtitle-box {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--eco-white);
+}
+
+/* Cards dark */
 body.dark-mode .eco-card {
   background-color: #020817;
   border: 1px solid #1e293b;
@@ -259,15 +277,5 @@ body.dark-mode .eco-card {
 }
 
 body.dark-mode .eco-equipe-grid {
-   background-color: #020817;
-}
-
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4 {
-  color: var(--eco-white); /* corrige títulos no modo escuro */
-}
-
-body.dark-mode .eco-section-header h2::after {
-  background: var(--eco-secondary);
+  background-color: #020817;
 }
