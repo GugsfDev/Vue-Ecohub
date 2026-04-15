@@ -3,7 +3,6 @@
     <div class="form-side">
       <div class="form-container">
 
-        <!-- ✅ LOGO DINÂMICA -->
         <img 
           :src="darkMode ? logoEscuro : logoClaro" 
           alt="EcoHub" 
@@ -98,6 +97,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import api from '../services/api'
@@ -115,30 +115,41 @@ const mostrarSenha = ref(false)
 const darkMode = ref(false)
 
 onMounted(() => {
+  // 1. Mantém a lógica de tema escuro
   const temaSalvo = localStorage.getItem("theme")
 
   if (temaSalvo === "dark") {
     document.body.classList.add("dark-mode")
     darkMode.value = true
   }
+
+  // 2. NOVA LÓGICA: Busca o e-mail lembrado
+  const emailSalvo = localStorage.getItem('lembrarEmail')
+  if (emailSalvo) {
+    email.value = emailSalvo
+    lembrarMe.value = true // Deixa o checkbox marcado automaticamente
+  }
 })
 
-// 🚀 LOGIN CORRIGIDO
+// 🚀 LOGIN CORRIGIDO COM LEMBRAR-ME
 const fazerLogin = async () => {
   try {
-    const response = await api.post('/login', {
+    const response = await api.post('/api/users/login', {
       email: email.value,
       senha: senha.value
     })
 
     console.log('Login sucesso:', response.data)
 
-    // 🔥 SALVA USUÁRIO (ESSENCIAL)
+    // 🔥 SALVA USUÁRIO E TOKEN (ESSENCIAL)
     localStorage.setItem('usuario', JSON.stringify(response.data.usuario))
+    localStorage.setItem('token', response.data.token)
 
-    // 🔥 lembrar login (opcional)
+    // 🔥 LÓGICA DE LEMBRAR LOGIN
     if (lembrarMe.value) {
       localStorage.setItem('lembrarEmail', email.value)
+    } else {
+      localStorage.removeItem('lembrarEmail') // Remove se desmarcar
     }
 
     alert('Login realizado com sucesso! 🚀')

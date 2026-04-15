@@ -90,62 +90,14 @@
             <a href="https://www.eniac.edu.br/" target="_blank" class="news-link">Ler mais <span class="arrow">→</span></a>
           </div>
         </div>
-
-        <div class="card-noticia">
-          <div class="card-faixa c2"></div>
-          <div class="card-body">
-            <span class="card-tag">Parcerias</span>
-            <h3>Maior Franquia</h3>
-            <p>A faculdade anuncia novas parcerias que beneficiarão alunos de diversos cursos.</p>
-            <RouterLink to="/noticias" class="news-link">Ler mais <span class="arrow">→</span></RouterLink>
-          </div>
-        </div>
-
-        <div class="card-noticia">
-          <div class="card-faixa c3"></div>
-          <div class="card-body">
-            <span class="card-tag">Cultura</span>
-            <h3>Rita Lee</h3>
-            <p>Homenagem aos grandes nomes da música brasileira em nosso centro cultural.</p>
-            <RouterLink to="/noticias" class="news-link">Ler mais <span class="arrow">→</span></RouterLink>
-          </div>
-        </div>
-
-        <div class="card-noticia">
-          <div class="card-faixa c4"></div>
-          <div class="card-body">
-            <span class="card-tag">Comunidade</span>
-            <h3>Música Boa</h3>
-            <p>As melhores playlists montadas pelos alunos para manter o foco nos estudos.</p>
-            <a href="https://www.youtube.com/watch?v=sVZpHFXcFJw" target="_blank" class="news-link">Ler mais <span class="arrow">→</span></a>
-          </div>
-        </div>
-
-        <div class="card-noticia">
-          <div class="card-faixa c5"></div>
-          <div class="card-body">
-            <span class="card-tag">Tecnologia</span>
-            <h3>Inovação Tech</h3>
-            <p>Novos laboratórios com suporte às ferramentas mais modernas do mercado.</p>
-            <a href="https://www.eniac.edu.br/" target="_blank" class="news-link">Ler mais <span class="arrow">→</span></a>
-          </div>
-        </div>
-
-        <div class="card-noticia">
-          <div class="card-faixa c6"></div>
-          <div class="card-body">
-            <span class="card-tag">Eventos</span>
-            <h3>Eventos e Palestras</h3>
-            <p>Participe dos próximos workshops gratuitos oferecidos pela instituição.</p>
-            <a href="https://www.youtube.com/watch?v=-Gcj-pcFTbE" target="_blank" class="news-link">Ler mais <span class="arrow">→</span></a>
-          </div>
-        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script setup>
+// Mantemos o script setup inicializado corretamente para o Vue reconhecer como um componente válido
+import { ref } from 'vue'
 </script>
 
 <style>

@@ -209,8 +209,7 @@ const fazerCadastro = async () => {
   try {
     console.log("ENVIANDO:", dados) // 🔥 DEBUG
 
-    const response = await api.post('/usuarios', dados)
-
+    const response = await api.post('/api/users/register', dados)
     console.log("RESPOSTA:", response.data)
 
     alert('Cadastro realizado com sucesso! 🚀')
