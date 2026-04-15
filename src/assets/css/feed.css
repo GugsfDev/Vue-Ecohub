@@ -16,7 +16,6 @@ h1 {
     padding: 60px 20px;
     font-size: 60px;
     margin: 0;
-    transition: background 0.3s, color 0.3s;
 }
 
 h2 {
@@ -25,140 +24,11 @@ h2 {
     margin: 20px 0;
 }
 
-/* ================= TITULO PRINCIPAL ================= */
-.titulo {
-    background: #31BADF;
-    color: white;
-    padding: 20px 40px;
-    border-radius: 30px;
-    margin: 40px auto;
-    display: block;
-    width: fit-content;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* ================= SEÇÃO INICIO ================= */
-#inicio {
-    color: white;
-    text-align: center;
-    background: #31BADF;
-    padding: 20px 10px;
-    font-size: 35px;
-    line-height: 1.1;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* ================= LAYOUT / CONTEUDO ================= */
-.layout {
-    display: flex;
-}
-
-.conteudo {
-    flex: 3;
-    padding: 20px;
-}
-
-/* ================= ESTATÍSTICAS ================= */
-.estatisticas {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #f4f4f4;
-    padding: 40px 20px;
-    margin-top: 40px;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* ================= NOTICIAS ================= */
-.noticias {
-    flex: 1;
-    padding: 20px;
-    background: #f4f4f4;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 35px;
-    justify-content: space-evenly;
-    transition: background 0.3s, color 0.3s;
-}
-
-.card-noticia {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 260px;
-    transition: background 0.3s, color 0.3s, transform 0.3s;
-}
-
-.card-noticia img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.card-noticia h3 {
-    margin-top: 15px;
-    font-size: 18px;
-}
-
-.card-noticia p {
-    font-size: 14px;
-    color: #555;
-}
-
-.card-noticia a {
-    text-decoration: none;
-    color: #0d3b66;
-    font-weight: bold;
-    margin-top: 10px;
-    display: inline-block;
-}
-
-.card-noticia a:hover {
-    text-decoration: underline;
-}
-
-/* ================= CARDS PRINCIPAIS ================= */
-.card {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s, transform 0.3s, border 0.3s;
-}
-
-.card .icone {
-    font-size: 35px;
-    margin-bottom: 10px;
-}
-
-.card h2 {
-    font-size: 40px;
-    margin: 10px 0;
-    color: #0d3b66;
-}
-
-.card p {
-    color: #555;
-}
-
-.card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.card:hover {
-    transform: scale(1.03);
-}
-
 /* ================= FEED ================= */
 .feed-wrapper {
     background-color: #f0f2f5;
     min-height: 100vh;
     padding: 20px 5%;
-    transition: background 0.3s, color 0.3s;
 }
 
 .feed-grid {
@@ -184,6 +54,7 @@ h2 {
     gap: 16px;
 }
 
+/* ================= CARDS ================= */
 .mini-profile-card,
 .recommendation-card,
 .create-post,
@@ -192,92 +63,239 @@ h2 {
     border-radius: 10px;
     border: 1px solid #ddd;
     overflow: hidden;
-    transition: background 0.3s, color 0.3s, border 0.3s;
 }
 
-/* Botões de ação */
-.action-btn-styled {
-    background: none;
-    border: none;
+/* ================= PERFIL LATERAL ================= */
+.profile-cover {
+    height: 60px;
+    background: #00d2ff;
+}
+
+.profile-avatar-mini {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    margin: -32px auto 0;
+    display: block;
+}
+
+.profile-info-mini {
+    text-align: center;
     padding: 10px;
-    border-radius: 8px;
-    color: #65676b;
-    font-weight: 600;
-    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+/* ================= CRIAR POST ================= */
+.input-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: 0.3s;
+    gap: 10px;
+    padding: 10px;
 }
 
-.action-btn-styled:hover { background-color: #f2f2f2; }
-.action-btn-styled i.fa-image { color: #45bd62; }
-.action-btn-styled i.fa-calendar-day { color: #f3425f; }
+.avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-.profile-cover { height: 60px; background: #00d2ff; }
-.profile-avatar-mini { width: 64px; height: 64px; border-radius: 50%; border: 4px solid #fff; margin: -32px auto 0; display: block; }
-.profile-info-mini { text-align: center; padding: 10px; border-bottom: 1px solid #eee; }
-.profile-stats-mini { padding: 12px; font-size: 0.8rem; }
-.stat-item { display: flex; justify-content: space-between; margin-bottom: 5px; color: #65676b; }
+textarea {
+    flex: 1;
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+}
 
-.recommendation-card { padding: 15px; }
-.recommendation-card h4 { margin-bottom: 15px; color: #1c1e21; }
-.suggestion-item { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
-.suggestion-avatar { width: 35px; height: 35px; background: #ddd; border-radius: 50%; }
-.suggestion-info { flex-grow: 1; display: flex; flex-direction: column; font-size: 0.85rem; }
-.sug-name { font-weight: bold; }
-.btn-follow { background: #fff; border: 1px solid #00d2ff; color: #00d2ff; border-radius: 20px; padding: 4px 12px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
-.btn-follow:hover { background: #00d2ff; color: #fff; }
+/* ================= POST ================= */
+.post-card {
+    padding: 15px;
+}
 
-.post-actions-row { display: flex; justify-content: space-between; align-items: center; padding: 0 10px 10px; }
-.media-options { display: flex; gap: 10px; }
+/* 🔥 HEADER DO POST (AQUI FOI AJUSTADO) */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-/* ================= MODO ESCURO ================= */
+/* 🔥 FOTO PEQUENA E BONITA */
+.avatar-post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+/* TEXTO AO LADO */
+.post-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-meta span {
+    font-size: 12px;
+    color: #65676b;
+}
+
+/* CONTEÚDO */
+.post-body {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* AÇÕES */
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    border: none;
+    background: #f0f2f5;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.post-actions button:hover {
+    background: #ddd;
+}
+
+/* ================= SUGESTÕES ================= */
+.recommendation-card {
+    padding: 15px;
+}
+
+.recommendation-card h4 {
+    margin-bottom: 15px;
+}
+
+/* ================= DARK MODE ================= */
 body.dark-mode {
     background: #0f172a;
     color: white;
 }
 
-/* H1/H2 */
-body.dark-mode h1 {
-    background: linear-gradient(#020817, #0f172a);
-    color: white;
-}
-
-body.dark-mode h2 {
-    color: #fff;
-}
-
-/* Títulos e início */
-body.dark-mode #inicio { background: #0f172a; color: #94a3b8; }
-body.dark-mode .titulo { background: #020817; color: white; border: 1px solid #1e293b; }
-
-/* Seções */
-body.dark-mode .estatisticas,
-body.dark-mode .noticias,
 body.dark-mode .feed-wrapper {
     background: #0f172a;
 }
 
-/* Cards */
-body.dark-mode .card,
-body.dark-mode .mini-profile-card,
-body.dark-mode .recommendation-card,
-body.dark-mode .create-post,
 body.dark-mode .post-card,
-body.dark-mode .card-noticia {
+body.dark-mode .create-post,
+body.dark-mode .mini-profile-card,
+body.dark-mode .recommendation-card {
     background: #020817;
+    border: 1px solid #1e293b;
     color: #94a3b8;
+}
+
+body.dark-mode .post-meta span {
+    color: #94a3b8;
+}
+
+body.dark-mode .post-actions button {
+    background: #1e293b;
+    color: white;
+}
+
+body.dark-mode .post-actions button:hover {
+    background: #334155;
+}
+
+/* ================= DARK MODE - INPUT E BOTÕES ================= */
+
+/* TEXTAREA (onde escreve o post) */
+body.dark-mode textarea {
+    background: #020817;
+    color: #e2e8f0;
     border: 1px solid #1e293b;
 }
 
-/* Links e botões */
-body.dark-mode .card-noticia a { color: #60a5fa; }
-body.dark-mode .action-btn-styled { color: #ccc; }
-body.dark-mode .action-btn-styled:hover { background-color: #2a2a2a; }
-body.dark-mode .btn-follow { border: 1px solid #00d2ff; background: transparent; color: #00d2ff; }
-body.dark-mode .btn-follow:hover { background: #00d2ff; color: #fff; }
+body.dark-mode textarea::placeholder {
+    color: #64748b;
+}
 
-body.dark-mode .profile-cover {
-    background-color: #020817;
+/* CONTAINER DE CRIAR POST */
+body.dark-mode .create-post {
+    background: #020817;
+    border: 1px solid #1e293b;
+}
+
+/* BOTÃO PUBLICAR */
+body.dark-mode .btn-publicar {
+    background: #0ea5e9;
+    color: white;
+    border: none;
+}
+
+body.dark-mode .btn-publicar:hover {
+    background: #0284c7;
+}
+
+/* BOTÕES DE AÇÃO (curtir / deletar) */
+body.dark-mode .post-actions button {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: none;
+}
+
+body.dark-mode .post-actions button:hover {
+    background: #334155;
+}
+
+/* BOTÃO DELETAR DESTACADO */
+body.dark-mode .post-actions button[style*="red"] {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+body.dark-mode .post-actions button[style*="red"]:hover {
+    background: #991b1b;
+}
+
+/* ================= BOTÕES DARK MODE (CORRIGIDO) ================= */
+
+/* TODOS OS BOTÕES DO FEED */
+body.dark-mode button {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: none;
+}
+
+/* HOVER */
+body.dark-mode button:hover {
+    background: #334155;
+}
+
+/* BOTÃO DE CURTIR */
+body.dark-mode button:has(span),
+body.dark-mode button:not(.btn-publicar) {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+/* BOTÃO DELETAR */
+body.dark-mode button[style*="red"] {
+    background: #7f1d1d !important;
+    color: #fecaca !important;
+}
+
+body.dark-mode button[style*="red"]:hover {
+    background: #991b1b !important;
+}
+
+/* BOTÃO PUBLICAR */
+body.dark-mode .btn-publicar {
+    background: #0ea5e9 !important;
+    color: white;
+}
+
+body.dark-mode .btn-publicar:hover {
+    background: #0284c7 !important;
 }

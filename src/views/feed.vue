@@ -5,13 +5,19 @@ import api from '../services/api'
 const posts = ref([])
 const novoPost = ref('')
 
-const usuario = JSON.parse(localStorage.getItem('usuario'))
+const usuario = JSON.parse(localStorage.getItem('usuario')) || {}
 
+/* ================================
+   CARREGAR POSTS
+================================ */
 const carregarPosts = async () => {
   const res = await api.get('/posts')
   posts.value = res.data
 }
 
+/* ================================
+   CRIAR POST
+================================ */
 const publicarPost = async () => {
   if (!novoPost.value.trim()) return
 
@@ -26,29 +32,51 @@ const publicarPost = async () => {
   carregarPosts()
 }
 
-// ❤️ CURTIR COM CONTROLE
-const curtirPost = async (post) => {
-  try {
-    await api.put(`/posts/${post._id}/like`, {
-      userId: usuario._id
-    })
+/* ================================
+   ENTER PUBLICA / SHIFT ENTER QUEBRA LINHA
+================================ */
+const handleEnter = (e) => {
+  if (!e.shiftKey) {
+    e.preventDefault()
 
-    carregarPosts()
+    if (!novoPost.value.trim()) return
 
-  } catch (err) {
-    alert('Você já curtiu esse post 😅')
+    publicarPost()
   }
 }
 
-// 🗑️ DELETAR
+/* ================================
+   VERIFICA CURTIDA
+================================ */
+const jaCurtiu = (post) => {
+  return post.curtidas?.includes(usuario._id)
+}
+
+/* ================================
+   CURTIR / DESCURTIR
+================================ */
+const curtirPost = async (post) => {
+  try {
+    const res = await api.put(`/posts/${post._id}/like`, {
+      userId: usuario._id
+    })
+
+    const index = posts.value.findIndex(p => p._id === post._id)
+    posts.value[index] = res.data
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+/* ================================
+   DELETAR
+================================ */
 const deletarPost = async (post) => {
   const confirmar = confirm('Deseja deletar?')
   if (!confirmar) return
 
-  await api.delete(`/posts/${post._id}`, {
-    data: { userId: usuario._id }
-  })
-
+  await api.delete(`/posts/${post._id}/${usuario._id}`)
   carregarPosts()
 }
 
@@ -63,7 +91,11 @@ onMounted(carregarPosts)
       <aside class="side-column">
         <div class="card mini-profile-card">
           <div class="profile-cover"></div>
-          <img src="/perfil.jpg" class="profile-avatar-mini">
+
+          <img 
+            :src="usuario?.foto || '/perfil.jpg'" 
+            class="profile-avatar-mini"
+          >
 
           <div class="profile-info-mini">
             <h3>{{ usuario?.nome || 'Usuário' }}</h3>
@@ -78,11 +110,19 @@ onMounted(carregarPosts)
         <!-- CRIAR POST -->
         <div class="card create-post">
           <div class="input-row">
-            <img src="/perfil.jpg" class="avatar-small">
+
+            <img 
+              :src="usuario?.foto || '/perfil.jpg'" 
+              class="avatar-small"
+            >
+
+            <!-- 🔥 TEXTAREA CORRETO -->
             <textarea 
               v-model="novoPost" 
               placeholder="No que você está pensando?"
+              @keydown.enter="handleEnter"
             ></textarea>
+
           </div>
 
           <div class="post-actions-row">
@@ -96,7 +136,12 @@ onMounted(carregarPosts)
         <div v-for="post in posts" :key="post._id" class="card post-card">
           
           <div class="post-header">
-            <img src="/perfil.jpg" class="avatar-small">
+
+            <img 
+              :src="post.foto || '/perfil.jpg'" 
+              class="avatar-small"
+            >
+
             <div class="post-meta">
               <strong>{{ post.autor }}</strong>
               <span>{{ post.username }}</span>
@@ -107,19 +152,18 @@ onMounted(carregarPosts)
             <p>{{ post.conteudo }}</p>
           </div>
 
-          <!-- 🔥 AÇÕES -->
-          <div style="display:flex; gap:10px; margin-top:10px;">
+          <!-- AÇÕES -->
+          <div class="post-actions">
 
-            <!-- ❤️ CURTIR -->
-            <button @click="curtirPost(post._id)">
-              ❤️ {{ post.likes || 0 }}
+            <button @click="curtirPost(post)">
+              {{ jaCurtiu(post) ? '💔' : '❤️' }}
+              {{ post.likes || 0 }}
             </button>
 
-            <!-- 🗑️ DELETAR -->
             <button 
-              v-if="usuario?._id === post.userId"
-              @click="deletarPost(post._id, post.userId)"
-              style="color:red"
+              v-if="post.userId?.toString() === usuario._id"
+              @click="deletarPost(post)"
+              class="btn-deletar"
             >
               🗑️ Deletar
             </button>
@@ -147,4 +191,16 @@ onMounted(carregarPosts)
 
 <style scoped>
 @import '../assets/css/feed.css';
+
+/* 🔥 AÇÕES PADRÃO */
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 🔥 BOTÃO DELETAR */
+.btn-deletar {
+  color: red;
+}
 </style>
