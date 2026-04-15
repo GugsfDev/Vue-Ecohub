@@ -1,281 +1,350 @@
-/* =========================================
-   VARIÁVEIS DE DESIGN
-   ========================================= */
-:root {
-  --eco-primary: #002b5c;
-  --eco-secondary: #0077c8;
-  --eco-accent: #00b4d8;
-  --eco-dark: #1a1a1a;
-  --eco-text: #4a4a4a;
-  --eco-bg-light: #f8faff;
-  --eco-white: #ffffff;
-  --eco-radius: 12px;
-  --eco-shadow: 0 10px 30px rgba(0, 43, 92, 0.08);
-  --eco-shadow-hover: 0 15px 40px rgba(0, 119, 200, 0.15);
-  --eco-font: 'Inter', 'Segoe UI', Roboto, sans-serif;
+.sobre-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(49, 186, 223, 0.18), transparent 28%),
+    linear-gradient(180deg, #f1f5f9 0%, #eaf4fb 100%);
+  color: #051d40;
 }
 
-/* =========================================
-   DARK MODE (VARIÁVEIS)
-   ========================================= */
-body.dark-mode {
-  --eco-primary: #60a5fa;
-  --eco-secondary: #38bdf8;
-  --eco-accent: #22d3ee;
-  --eco-dark: #0f172a;
-  --eco-text: #cbd5f5;
-  --eco-bg-light: #020817;
-  --eco-white: #020817;
-  --eco-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  --eco-shadow-hover: 0 15px 40px rgba(0,0,0,0.7);
-}
-
-/* =========================================
-   BASE
-   ========================================= */
-.ecossistema-main {
-  font-family: var(--eco-font);
-  color: var(--eco-text);
-  line-height: 1.6;
-  background-color: var(--eco-white);
-  overflow-x: hidden;
-  transition: 0.3s;
-}
-
-/* =========================================
-   TÍTULOS PADRÃO
-   ========================================= */
-h2, h3, h4 {
-  color: var(--eco-primary);
-  transition: 0.3s;
-}
-
-/* =========================================
-   CAIXAS DE TÍTULO (NOVO)
-   ========================================= */
-.eco-title-box {
-  display: inline-block;
-  background: var(--eco-secondary);
-  color: var(--eco-white);
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: 700;
-  box-shadow: 0 4px 15px rgba(0, 119, 200, 0.2);
-}
-
-.eco-subtitle-box {
-  display: inline-block;
-  background: rgba(0, 119, 200, 0.1);
-  color: var(--eco-primary);
-  padding: 8px 16px;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-/* =========================================
-   CONTAINER
-   ========================================= */
-.eco-container {
-
-  max-width: 1140px;
+.sobre-container {
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-.eco-section {
-  padding: 80px 0;
+.sobre-hero {
+  padding: 42px 0 28px;
 }
 
-.eco-container h2 {
-   background: #31BADF;
-   display: inline-block;
+.sobre-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: stretch;
+}
 
-  color: white;
+.sobre-hero-content,
+.sobre-hero-card,
+.info-card,
+.program-card,
+.team-card {
+  background: #ffffff;
+  border: 1px solid rgba(39, 136, 200, 0.12);
+  box-shadow: 0 14px 36px rgba(5, 29, 64, 0.08);
+}
 
-  /* 🔥 AQUI É O QUE AUMENTA A ÁREA */
-  padding: 20px 50px; 
-
+.sobre-hero-content {
   border-radius: 30px;
-  font-size: 2.2rem;
+  padding: 38px;
+}
+
+.sobre-badge,
+.section-kicker,
+.hero-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.sobre-badge,
+.section-kicker {
+  color: #0f5e96;
+  background: rgba(39, 136, 200, 0.12);
+  border: 1px solid rgba(39, 136, 200, 0.16);
+}
+
+.section-kicker.light {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.sobre-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  margin: 18px 0 16px;
+  max-width: 11ch;
+}
+
+.sobre-lead {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #21344d;
+  margin-bottom: 12px;
+}
+
+.sobre-text {
+  color: #617287;
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+.sobre-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2788c8 0%, #31badf 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(39, 136, 200, 0.22);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #f7fbfe;
+  color: #0f5e96;
+  border: 1px solid rgba(39, 136, 200, 0.16);
+}
+
+.btn-secondary:hover {
+  background: #eef7fc;
+}
+
+.sobre-hero-card {
+  border-radius: 30px;
+  padding: 26px;
+  background: linear-gradient(180deg, #051d40 0%, #0f5e96 100%);
+  color: #ffffff;
+}
+
+.hero-mini-badge {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.hero-card-top h3 {
+  margin: 18px 0 0;
+  font-size: 1.5rem;
+}
+
+.hero-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.hero-point {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.hero-point strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.hero-point p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.sobre-section {
+  padding: 28px 0;
+}
+
+.sobre-section-soft {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(236, 247, 252, 0.85) 100%);
+  border-top: 1px solid rgba(39, 136, 200, 0.08);
+  border-bottom: 1px solid rgba(39, 136, 200, 0.08);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  margin: 14px 0 12px;
+}
+
+.section-header p {
+  margin: 0;
+  color: #617287;
+  line-height: 1.7;
+}
+
+.cards-grid,
+.programas-grid,
+.team-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.cards-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.programas-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.team-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.info-card,
+.program-card,
+.team-card {
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.card-icon,
+.team-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
   font-weight: 800;
-  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2788c8 0%, #31badf 100%);
 }
 
-
-
-/* =========================================
-   HEADER
-   ========================================= */
-.eco-section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.eco-section-header h2::after {
-  content: '';
-  position: absolute;
-  width: 50%;
-  height: 4px;
-  background: var(--eco-secondary);
-  bottom: -5px;
-  left: 25%;
-  border-radius: 2px;
-}
-
-.eco-section-header p {
+.info-card h3,
+.program-card h3,
+.team-card h3 {
+  margin: 16px 0 10px;
   font-size: 1.1rem;
-  color: var(--eco-text);
-  max-width: 600px;
+  color: #051d40;
+}
+
+.info-card p,
+.program-card p,
+.team-card p {
+  margin: 0;
+  line-height: 1.7;
+  color: #5f7085;
+}
+
+.impact-section {
+  padding: 34px 0;
+  background: linear-gradient(135deg, #051d40 0%, #2788c8 60%, #31badf 100%);
+  color: #ffffff;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.impact-content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  margin: 14px 0 14px;
+}
+
+.impact-content p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin: 0 0 12px;
+}
+
+.impact-highlight {
+  display: grid;
+  gap: 14px;
+}
+
+.highlight-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 18px;
+  backdrop-filter: blur(4px);
+}
+
+.highlight-box strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.highlight-box span {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-avatar {
   margin: 0 auto;
-}
-
-/* =========================================
-   HERO
-   ========================================= */
-.eco-hero {
- 
-  padding: 100px 0;
-  text-align: center;
-}
-
-/* =========================================
-   GRID
-   ========================================= */
-.eco-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-/* =========================================
-   CARDS
-   ========================================= */
-.eco-card {
-  background: white;
-  padding: 30px;
-  border-radius: 50px;
-  box-shadow: var(--eco-shadow);
-  border-top: 4px solid var(--eco-secondary);
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.eco-card:hover {
-  box-shadow: var(--eco-shadow-hover);
-}
-
-.eco-card::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 100px;
-  height: 100px;
-  background: var(--eco-accent);
-  opacity: 0.1;
   border-radius: 50%;
-  transition: 0.5s;
 }
 
-.eco-card:hover::before {
-  transform: scale(2.5);
-}
+@media (max-width: 1100px) {
+  .sobre-hero-grid,
+  .impact-grid,
+  .cards-grid,
+  .programas-grid,
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
-.eco-card h3 {
-  color: var(--eco-primary);
-  margin-bottom: 15px;
-}
-
-/* =========================================
-   IMPACTO
-   ========================================= */
-.eco-impacto {
-  background: var(--eco-secondary);
-  color: var(--eco-white);
-  padding: 100px 0;
-  text-align: center;
-}
-
-/* =========================================
-   EQUIPE
-   ========================================= */
-.eco-equipe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  background: white;
-  border-radius: 50px;
-}
-
-.eco-membro {
-  background: var(--eco-white);
-  padding: 30px;
-  border-radius: var(--eco-radius);
-  text-align: center;
-  box-shadow: var(--eco-shadow);
-  transition: 0.3s;
-}
-
-.eco-avatar {
-  width: 100px;
-  height: 100px;
-  background: #e0e6ed;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-  border: 3px solid var(--eco-secondary);
-}
-
-.eco-membro h4 {
-  color: var(--eco-primary);
-}
-
-.eco-membro span {
-  color: var(--eco-secondary);
-}
-
-/* =========================================
-   RESPONSIVO
-   ========================================= */
-@media (max-width: 768px) {
-  .eco-title-box {
-    font-size: 1.5rem;
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* =========================================
-   DARK MODE AJUSTES
-   ========================================= */
-body.dark-mode {
-  background-color: var(--eco-bg-light);
-}
+@media (max-width: 780px) {
+  .sobre-hero {
+    padding-top: 24px;
+  }
 
-/* Títulos em dark */
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4 {
-  color: var(--eco-primary);
-}
+  .sobre-hero-grid,
+  .impact-grid,
+  .cards-grid,
+  .programas-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 
-/* Caixa título dark */
-body.dark-mode .eco-title-box {
-  background: var(--eco-primary);
-  color: #020817;
-}
+  .sobre-hero-content,
+  .sobre-hero-card,
+  .info-card,
+  .program-card,
+  .team-card {
+    border-radius: 22px;
+  }
 
-/* Caixa subtítulo dark */
-body.dark-mode .eco-subtitle-box {
-  background: rgba(56, 189, 248, 0.15);
-  color: var(--eco-white);
-}
+  .sobre-hero-content {
+    padding: 26px;
+  }
 
-/* Cards dark */
-body.dark-mode .eco-card {
-  background-color: #020817;
-  border: 1px solid #1e293b;
-  color: var(--eco-text);
-}
+  .sobre-hero-actions {
+    flex-direction: column;
+  }
 
-body.dark-mode .eco-equipe-grid {
-  background-color: #020817;
+  .btn-primary,
+  .btn-secondary {
+    text-align: center;
+  }
 }
