@@ -1,17 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Caminho correto: sai de router, entra em views
 import Inicio from '../views/inicio.vue'
 import Feed from '../views/feed.vue'
 import Eventos from '../views/eventos.vue'
 import Noticias from '../views/noticias.vue'
 import Login from '../views/login.vue'
 import Cadastro from '../views/cadastro.vue'
-import calendario  from '../views/calendario.vue'
-import sobre  from '../views/sobre.vue'
+import calendario from '../views/calendario.vue'
+import sobre from '../views/sobre.vue'
 import esqueci from '../views/esqueci.vue'
 import perfil from '../views/perfil.vue'
-
+import Projetos from '../views/projetos.vue'
 
 const routes = [
   { path: '/', redirect: '/inicio' },
@@ -24,7 +23,8 @@ const routes = [
   { path: '/calendario', name: 'calendario', component: calendario },
   { path: '/sobre', name: 'sobre', component: sobre },
   { path: '/esqueci', name: 'esqueci', component: esqueci },
-  { path: '/perfil', name: 'perfil', component: perfil }
+  { path: '/perfil', name: 'perfil', component: perfil },
+  { path: '/projetos', name: 'projetos', component: Projetos }
 ]
 
 const router = createRouter({
