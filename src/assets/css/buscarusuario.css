@@ -1,0 +1,86 @@
+/* ===== PAGE ===== */
+.buscar-usuarios-page {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* ===== INPUT ===== */
+.buscar-usuarios-page input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* ===== ITEM ===== */
+.usuario-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.usuario-item:hover {
+    background: #f5f5f5;
+}
+
+/* ===== LADO ESQUERDO ===== */
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* FOTO */
+.usuario-foto {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* NOME */
+.usuario-nome {
+    font-weight: 500;
+    color: #222;
+    text-decoration: none;
+}
+
+/* BOTÃO */
+.usuario-item button {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: #00d2ff;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode .buscar-usuarios-page input {
+    background: #020817;
+    border: 1px solid #1e293b;
+    color: #fff;
+}
+
+body.dark-mode .usuario-item {
+    background: #020817;
+    border: 1px solid #1e293b;
+}
+
+body.dark-mode .usuario-item:hover {
+    background: #0f172a;
+}
+
+body.dark-mode .usuario-nome {
+    color: #fff;
+}

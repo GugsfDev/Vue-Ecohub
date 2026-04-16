@@ -17,9 +17,15 @@
     min-width: 600px;
 }
 
+.perfil-posts {
+    flex: 1;
+    padding: 20px;
+}
+
 /* ===== CARDS (PADRÃO DO SITE) ===== */
 .card-perfil-main,
-.tweet-card-fake {
+.tweet-card-fake,
+.post-card {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -27,11 +33,18 @@
     transition: 0.3s;
 }
 
-/* REMOVIDO O EFEITO DE HOVER QUE MOVE ELEVANDO */
-
 /* ===== PERFIL ===== */
 .card-perfil-main {
     text-align: center;
+}
+
+.foto-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.input-foto-escondido {
+    display: none;
 }
 
 .foto-grande {
@@ -42,6 +55,11 @@
     border: 4px solid #fff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+}
+
+.card-perfil-main h2 {
+    color: #222;
+    margin-bottom: 8px;
 }
 
 .username {
@@ -58,22 +76,22 @@
 /* ===== STATS ===== */
 .perfil-stats {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     margin: 25px 0;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     padding: 15px 0;
+    font-size: 14px;
+    flex-wrap: wrap;
 }
 
-.stat {
-    font-size: 0.9rem;
-    color: #888;
+.perfil-stats span {
+    color: #666;
 }
 
-.stat span {
-    display: block;
-    font-size: 1.4rem;
-    color: #333;
+.perfil-stats strong {
+    color: #222;
     font-weight: bold;
 }
 
@@ -135,6 +153,25 @@
     margin-top: 10px;
 }
 
+/* ===== POSTS ===== */
+.post-card {
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.post-card small {
+    color: #666;
+}
+
+.perfil-posts h3 {
+    color: #222;
+    margin-bottom: 15px;
+}
+
 /* ================= DARK MODE ================= */
 
 body.dark-mode {
@@ -142,20 +179,27 @@ body.dark-mode {
     color: white;
 }
 
-/* ===== CARDS DARK (IGUAL NOTÍCIAS) ===== */
+/* ===== CARDS DARK ===== */
 body.dark-mode .card-perfil-main,
-body.dark-mode .tweet-card-fake {
+body.dark-mode .tweet-card-fake,
+body.dark-mode .post-card {
     background: #020817;
     border: 1px solid #1e293b;
     color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/* REMOVIDO O EFEITO DE HOVER QUE MOVE ELEVANDO */
-
 /* FOTO */
 body.dark-mode .foto-grande {
     border: 4px solid #1e293b;
+}
+
+/* TÍTULO */
+body.dark-mode .card-perfil-main h2,
+body.dark-mode .perfil-posts h3,
+body.dark-mode .post-card p,
+body.dark-mode .post-card strong {
+    color: #ffffff;
 }
 
 /* USERNAME */
@@ -174,11 +218,11 @@ body.dark-mode .perfil-stats {
     border-bottom: 1px solid #1e293b;
 }
 
-body.dark-mode .stat {
+body.dark-mode .perfil-stats span {
     color: #94a3b8;
 }
 
-body.dark-mode .stat span {
+body.dark-mode .perfil-stats strong {
     color: #ffffff;
 }
 
@@ -204,7 +248,8 @@ body.dark-mode .btn-sair:hover {
 }
 
 /* TEXTO */
-body.dark-mode .tweet-text-fake {
+body.dark-mode .tweet-text-fake,
+body.dark-mode .post-card small {
     color: #94a3b8;
 }
 
@@ -218,3 +263,9 @@ body.dark-mode .badg-fake {
     background: rgba(56, 189, 248, 0.15);
     color: #38bdf8;
 }
+
+/* ÁREA DE POSTS */
+body.dark-mode .perfil-posts {
+    background: transparent;
+}
+

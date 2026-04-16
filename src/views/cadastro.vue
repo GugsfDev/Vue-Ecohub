@@ -3,7 +3,6 @@
     <div class="form-side">
       <div class="form-container">
         
-        <!-- ✅ LOGO DINÂMICA -->
         <img 
           :src="darkMode ? logoEscuro : logoClaro" 
           alt="EcoHub" 
@@ -148,7 +147,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import api from '../services/api'
+import api from 'api'
 
 // IMAGENS
 import logoClaro from '../assets/img/eniacpreto.png'
@@ -181,16 +180,12 @@ onMounted(() => {
   }
 })
 
-// 🚀 CADASTRO CORRIGIDO
 const fazerCadastro = async () => {
-
-  // validação senha
   if (senha.value !== confirmarSenha.value) {
     erroSenha.value = 'As senhas não coincidem!'
     return
   }
 
-  // valida termos
   if (!aceitarTermos.value) {
     alert('Você precisa aceitar os termos!')
     return
@@ -207,20 +202,20 @@ const fazerCadastro = async () => {
   }
 
   try {
-    console.log("ENVIANDO:", dados) // 🔥 DEBUG
+    console.log("ENVIANDO:", dados)
 
-    const response = await api.post('/api/users/register', dados)
+    const response = await api.post('/usuarios', dados)
     console.log("RESPOSTA:", response.data)
 
     alert('Cadastro realizado com sucesso! 🚀')
 
-    // limpar
     nome.value = ''
     email.value = ''
     curso.value = ''
     semestre.value = ''
     senha.value = ''
     confirmarSenha.value = ''
+    aceitarTermos.value = false
 
   } catch (error) {
     console.error("ERRO COMPLETO:", error)

@@ -299,3 +299,52 @@ body.dark-mode .btn-publicar {
 body.dark-mode .btn-publicar:hover {
     background: #0284c7 !important;
 }
+
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-deletar {
+  color: red;
+}
+
+.btn-editar {
+  color: #2563eb;
+}
+
+.textarea-edicao {
+  width: 100%;
+  min-height: 90px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-top: 10px;
+}
+
+.acoes-edicao {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-salvar {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background: #e5e7eb;
+  color: #111827;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}

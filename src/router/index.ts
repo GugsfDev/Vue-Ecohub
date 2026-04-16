@@ -13,7 +13,6 @@ import perfil from '../views/perfil.vue'
 import Projetos from '../views/projetos.vue'
 import buscarusuario from '../views/buscarusuario.vue'
 
-
 const routes = [
   { path: '/', redirect: '/inicio' },
   { path: '/inicio', name: 'inicio', component: Inicio },
@@ -25,11 +24,16 @@ const routes = [
   { path: '/calendario', name: 'calendario', component: calendario },
   { path: '/sobre', name: 'sobre', component: sobre },
   { path: '/esqueci', name: 'esqueci', component: esqueci },
-  { path: '/perfil', name: 'perfil', component: perfil },
-  { path: '/projetos', name: 'projetos', component: Projetos },
-   { path: '/buscarusuario', name: 'buscarusuario', component: buscarusuario }
-]
 
+  // perfil do usuário logado
+  { path: '/perfil', name: 'perfil', component: perfil },
+
+  // perfil de outro usuário clicado na busca
+  { path: '/perfil/:id', name: 'perfil-usuario', component: perfil },
+
+  { path: '/projetos', name: 'projetos', component: Projetos },
+  { path: '/buscarusuario', name: 'buscarusuario', component: buscarusuario }
+]
 
 const router = createRouter({
   history: createWebHistory(),

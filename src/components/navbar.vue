@@ -10,6 +10,7 @@
       <RouterLink to="/noticias" active-class="ativo">Notícias</RouterLink>
       <RouterLink to="/feed" active-class="ativo">Feed</RouterLink>
       <RouterLink to="/sobre" active-class="ativo">Sobre</RouterLink>
+      <RouterLink to="/buscarusuario" active-class="buscarusuario">buscar</RouterLink>
     </nav>
 
     <div class="header-direita">
