@@ -115,7 +115,6 @@ const mostrarSenha = ref(false)
 const darkMode = ref(false)
 
 onMounted(() => {
-  // 1. Mantém a lógica de tema escuro
   const temaSalvo = localStorage.getItem("theme")
 
   if (temaSalvo === "dark") {
@@ -123,38 +122,42 @@ onMounted(() => {
     darkMode.value = true
   }
 
-  // 2. NOVA LÓGICA: Busca o e-mail lembrado
   const emailSalvo = localStorage.getItem('lembrarEmail')
   if (emailSalvo) {
     email.value = emailSalvo
-    lembrarMe.value = true // Deixa o checkbox marcado automaticamente
+    lembrarMe.value = true
   }
 })
 
-// 🚀 LOGIN CORRIGIDO COM LEMBRAR-ME
+// 🚀 LOGIN CORRIGIDO
 const fazerLogin = async () => {
   try {
-    const response = await api.post('/api/users/login', {
+    const response = await api.post('/login', { // 🔥 CORRIGIDO AQUI
       email: email.value,
       senha: senha.value
     })
 
     console.log('Login sucesso:', response.data)
 
-    // 🔥 SALVA USUÁRIO E TOKEN (ESSENCIAL)
-    localStorage.setItem('usuario', JSON.stringify(response.data.usuario))
-    localStorage.setItem('token', response.data.token)
+    const usuario = response.data.usuario
 
-    // 🔥 LÓGICA DE LEMBRAR LOGIN
+    if (!usuario) {
+      alert('Erro: usuário não retornado 🚨')
+      return
+    }
+
+    // 🔥 SALVA USUÁRIO
+    localStorage.setItem('usuario', JSON.stringify(usuario))
+
+    // 🔥 LEMBRAR LOGIN
     if (lembrarMe.value) {
       localStorage.setItem('lembrarEmail', email.value)
     } else {
-      localStorage.removeItem('lembrarEmail') // Remove se desmarcar
+      localStorage.removeItem('lembrarEmail')
     }
 
     alert('Login realizado com sucesso! 🚀')
 
-    // 🔁 REDIRECIONA
     window.location.href = '/inicio'
 
   } catch (error) {

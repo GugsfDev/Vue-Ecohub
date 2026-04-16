@@ -11,6 +11,8 @@ import sobre from '../views/sobre.vue'
 import esqueci from '../views/esqueci.vue'
 import perfil from '../views/perfil.vue'
 import Projetos from '../views/projetos.vue'
+import buscarusuario from '../views/buscarusuario.vue'
+
 
 const routes = [
   { path: '/', redirect: '/inicio' },
@@ -24,8 +26,10 @@ const routes = [
   { path: '/sobre', name: 'sobre', component: sobre },
   { path: '/esqueci', name: 'esqueci', component: esqueci },
   { path: '/perfil', name: 'perfil', component: perfil },
-  { path: '/projetos', name: 'projetos', component: Projetos }
+  { path: '/projetos', name: 'projetos', component: Projetos },
+   { path: '/buscarusuario', name: 'buscarusuario', component: buscarusuario }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),
